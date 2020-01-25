@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Hello world</title>
+   </head>
+   <script src = "/socket.io/socket.io.js"></script>
+   
+   <script>
+      var socket = io();
+
+      socket.on('connectToRoom',function(data) {
+         document.body.innerHTML = '';
+         document.write(data.rawBody);
+      });
+
+      socket.on('post_received',function(data) {
+               document.body.innerHTML = '';
+               document.write(data.name + ' '+data.action);
+            });
+
+
+   </script>
+   <body></body>
+</html>
